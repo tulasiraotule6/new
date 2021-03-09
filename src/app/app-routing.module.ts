@@ -4,8 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { GalaryComponent } from './galary/galary.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
-  {path:'galary',component:GalaryComponent} 
+  {path:'home', component:HomeComponent},
+  {path:'galary',component:GalaryComponent}
 ];
 
 @NgModule({

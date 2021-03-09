@@ -1,0 +1,22 @@
+{
+  "Employee":[
+    {
+      "Name":"Tulasirao",
+      "Father":"Apparao",
+      "Email":"ttulasirao01@gmail.com",
+      "Phone":8309839462,
+      "Gender":"Male",
+      "City":"Hyderabad",
+      "IsPermanent":"true"
+    },
+    {
+      "Name":"Anil",
+      "Father":"Sunil",
+      "Email":"Anil_kumar01@gmail.com",
+      "Phone":8309839462,
+      "Gender":"Male",
+      "City":"Hyderabad",
+      "IsPermanent":"true"
+    }
+  ]
+}

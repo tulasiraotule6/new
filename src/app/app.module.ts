@@ -16,6 +16,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -27,6 +29,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { GalaryComponent } from './galary/galary.component';
+import { RegistrationService } from './shared/registration.service';
+import { EmpregComponent } from './empreg/empreg.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -34,16 +41,18 @@ import { GalaryComponent } from './galary/galary.component';
     AppComponent,
     RootNavComponent,
     HomeComponent,
-    GalaryComponent
+    GalaryComponent,
+    EmpregComponent
   ],
   imports: [
     FormsModule,MatRadioModule,MatSelectModule,MatFormFieldModule,ReactiveFormsModule,
     BrowserModule,AppRoutingModule,BrowserAnimationsModule,MatButtonModule,
     MatInputModule,LayoutModule,MatToolbarModule,MatSidenavModule,MatIconModule,
     MatListModule,MatDatepickerModule,MatNativeDateModule,MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,MatTableModule,MatDialogModule,HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [RegistrationService],
+  bootstrap: [AppComponent],
+  entryComponents:[EmpregComponent]
 })
 export class AppModule { }

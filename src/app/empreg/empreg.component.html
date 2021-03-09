@@ -1,0 +1,199 @@
+<h1 style="text-align: center">Employee Registration</h1>
+
+<div class="container">
+  <form
+    class="normal-form"
+    [formGroup]="regService.reactiveForm"
+    (submit)="onSubmit()"
+  >
+    <mat-grid-list cols="2" rowHeight="340px">
+      <mat-grid-tile>
+        <div class="part-1">
+          <!-- Name -->
+          <input type="hidden" formControlName="$key" />
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Name"
+              formControlName="Name"
+              required
+              [(ngModel)]="Name"
+            />
+            <mat-hint
+              *ngIf="
+                regService.reactiveForm.controls['Name'].errors &&
+                regService.reactiveForm.controls['Name'].touched
+              "
+            >
+              <span
+                style="color: red; font-weight: bold"
+                *ngIf="regService.reactiveForm.controls['Name'].errors.required"
+                >Name Should be Required</span
+              >
+            </mat-hint>
+          </mat-form-field>
+          <br />
+          <!-- Name -->
+          <!-- Password -->
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Password"
+              formControlName="Password"
+              required
+            />
+            <mat-hint
+              *ngIf="
+                regService.reactiveForm.controls['Password'].errors &&
+                regService.reactiveForm.controls['Password'].touched
+              "
+            >
+              <span
+                style="color: red; font-weight: bold"
+                *ngIf="
+                  regService.reactiveForm.controls['Password'].errors.required
+                "
+                >Password Should be Not Empty</span
+              >
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- Password -->
+          <!-- Father -->
+          <mat-form-field>
+            <mat-label>Father</mat-label>
+            <input matInput placeholder="Father" formControlName="Father" />
+            <mat-hint></mat-hint> </mat-form-field
+          ><br />
+          <!-- Password -->
+          <!-- Email -->
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="Email"
+              required
+            />
+            <mat-hint
+              *ngIf="
+                regService.reactiveForm.controls['Email'].errors &&
+                regService.reactiveForm.controls['Email'].touched
+              "
+            >
+              <span
+                style="color: red; font-weight: bold"
+                *ngIf="
+                  regService.reactiveForm.controls['Email'].errors.required
+                "
+                >Email Should be Not Empty</span
+              >
+            </mat-hint>
+          </mat-form-field>
+          <!-- Email -->
+          <!-- Phone-->
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input
+              matInput
+              placeholder="Phone"
+              formControlName="Phone"
+              required
+              maxlength="10"
+            />
+            <mat-hint
+              *ngIf="
+                regService.reactiveForm.controls['Phone'].errors &&
+                regService.reactiveForm.controls['Phone'].touched
+              "
+            >
+              <span
+                style="color: red; font-weight: bold"
+                *ngIf="
+                  regService.reactiveForm.controls['Phone'].errors.required
+                "
+                >Phone Should be Not Empty</span
+              >
+            </mat-hint>
+          </mat-form-field>
+          <!-- Phone -->
+        </div>
+      </mat-grid-tile>
+      <!-- Gender -->
+      <mat-grid-tile>
+        <div class="part-1">
+          <label id="lbl">Gender</label><br />
+          <mat-radio-group
+            formControlName="Gender"
+            aria-labelledby="example-radio-group-label"
+          >
+            <mat-radio-button class="example-radio-button" value="1"
+              >Male</mat-radio-button
+            >
+            <mat-radio-button value="2">FeMale</mat-radio-button>
+            <mat-radio-button value="3">Others</mat-radio-button>
+          </mat-radio-group>
+          <!-- Gender -->
+          <!-- city -->
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <mat-select formControlName="City">
+              <mat-option *ngFor="let city of cities" value="{{ city.id }}">{{
+                city.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- city -->
+          <!-- DOB -->
+          <mat-form-field>
+            <mat-label>Select DOB</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="DOB"
+              type="datetime"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- DOB -->
+          <!-- age -->
+          <mat-form-field>
+            <mat-label>AGE</mat-label>
+            <input matInput placeholder="Password" formControlName="Age" />
+            <mat-hint></mat-hint>
+          </mat-form-field>
+          <!-- age -->
+
+          <!-- PEr -->
+          <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+          <!-- PEr -->
+          <div class="btn-row">
+            <button
+              mat-raised-button
+              color="primary"
+              style="width: 35%"
+              [disabled]="regService.reactiveForm.invalid"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              style="width: 35%"
+              (click)="regService.reactiveForm.reset()"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>
