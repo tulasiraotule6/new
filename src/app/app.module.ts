@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatInputModule} from '@angular/material/input';
@@ -32,6 +36,7 @@ import { GalaryComponent } from './galary/galary.component';
 import { RegistrationService } from './shared/registration.service';
 import { EmpregComponent } from './empreg/empreg.component';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -49,9 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,AppRoutingModule,BrowserAnimationsModule,MatButtonModule,
     MatInputModule,LayoutModule,MatToolbarModule,MatSidenavModule,MatIconModule,
     MatListModule,MatDatepickerModule,MatNativeDateModule,MatCheckboxModule,
-    MatGridListModule,MatTableModule,MatDialogModule,HttpClientModule
+    MatGridListModule,MatTableModule,MatDialogModule,HttpClientModule,AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [RegistrationService],
+  providers: [RegistrationService,DatePipe],
   bootstrap: [AppComponent],
   entryComponents:[EmpregComponent]
 })

@@ -68,6 +68,7 @@
           }
         },
         "serve": {
+          "bundleDependencies":true,
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "sideNavBar:build"

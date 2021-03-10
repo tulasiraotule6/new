@@ -9,12 +9,12 @@ import { RegistrationService } from '../shared/registration.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+  
 export class HomeComponent implements OnInit {
   
   showFiller: any = false;
   emplists: any;
-
-
+  
 
 
   constructor(public regService: RegistrationService,

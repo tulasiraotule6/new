@@ -24,6 +24,7 @@ export class EmpregComponent implements OnInit {
   Gender: any;
   City: any;
   IsPermanent: any;
+  key: any;
 
 
   constructor(public regService: RegistrationService,
@@ -35,26 +36,24 @@ export class EmpregComponent implements OnInit {
     })
   }
   
-  
+  //Submit the Data
   onSubmit() {
-    this.postemps = {
-      Father  : this.Father,
-      Email : this.Email,
-      Name  : this.Name,
-      Phone : this.Phone,
-      Gender  : this.Gender,
-      City  : this.City,
-      IsPermanent:this.IsPermanent   
-    }
-    this.regService.postEmployee(this.postemps).subscribe(res => {
-      this.getEmpList();
-      console.log(this.postemps)
-    })
+    if (this.regService.reactiveForm.valid) {
+      this.regService.insertEmployee(this.regService.reactiveForm.validator)
+      this.regService.reactiveForm.reset();
+      this.regService.initialization();
   }
-  
+  }
 
+  //Reset The Data fields
+  onReset() {
+    this.regService.reactiveForm.reset();
+    this.regService.initialization();  //for initial Default Values
+  
+  }
   ngOnInit(): void {
     this.getEmpList()
+    this.regService.getEmployees();
   }
 
 }
