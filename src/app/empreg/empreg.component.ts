@@ -38,6 +38,7 @@ export class EmpregComponent implements OnInit {
   
   //Submit the Data
   onSubmit() {
+
     if (this.regService.reactiveForm.valid) {
       this.regService.insertEmployee(this.regService.reactiveForm.validator)
       this.regService.reactiveForm.reset();

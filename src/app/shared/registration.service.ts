@@ -11,9 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationService {
 
-    //employeeList:AngularFireList<any>;
-      //employeesList: FirebaseListObservable<any>
-
+    employeeList:AngularFireList<any>;
 
 
   constructor(public firebase: AngularFireDatabase,
@@ -24,10 +22,9 @@ export class RegistrationService {
   
   //Object Reference For Reactive Form
   reactiveForm: FormGroup = new FormGroup({
-    // $key:new FormControl(null),
-    key:new FormControl(Math.floor(100+Math.random()*100).toString()),
+    $key:new FormControl(null),
     Name: new FormControl('', [Validators.required]),
-    Address: new FormControl(''),
+    Father: new FormControl(''),
     Gender: new FormControl('1'),
     Phone: new FormControl('', [Validators.required]),
     Email: new FormControl('', [Validators.required]),
@@ -44,15 +41,15 @@ export class RegistrationService {
 //For Defaulat Values
   initialization() {
     this.reactiveForm.setValue({
-      //$key:null,
+      $key:null,
       Name: '',
-      Father: ' ',
+      Father: '',
       Gender:'1',
-      Email: ' ',
-      Phone: ' ',
+      Email: '',
+      Phone: '',
       isPerimenent: false,
       City: '',
-      DOB:' '
+      DOB:''
       
     })
   }
